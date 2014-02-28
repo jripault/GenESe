@@ -4,15 +4,19 @@ App.Router.map(function() {
 
 App.ApplicationRoute = Ember.Route.extend({
   model: function() {
-    return {
-      url: ''
-    };
+      var node = this.store.all('esnode');
+      if(!node.length || node.length == 0)
+      {
+          return this.store.createRecord('esnode', {nodeUrl: ''});
+      }
+      return ;
+      //return {};
   },
   actions:{
         connect: function(){
-            var esNode = this.store.createRecord('esNode', {url: this.currentModel.url});
-            jQuery.getJSON(this.currentModel.url, function(json) {
-              esNode.setProperties(json);
+            var esNode = this.currentModel;
+            jQuery.getJSON(this.currentModel.nodeUrl, function(json) {
+              esNode.save();
             });
         }   
     }
@@ -20,6 +24,6 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.IndicesRoute = Ember.Route.extend({
   model: function(params) {
-    return this.store.find('indices', params.index_name);
+    return ;
   }
 });
