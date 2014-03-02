@@ -4,19 +4,22 @@ App.Router.map(function() {
 
 App.ApplicationRoute = Ember.Route.extend({
   model: function() {
-      var node = this.store.all('esnode');
-      if(!node.length || node.length == 0)
-      {
-          return this.store.createRecord('esnode', {nodeUrl: ''});
-      }
-      return ;
+      // var node = this.store.all('esnode');
+      // if(!node.length || node.length == 0)
+      // {
+      //     return this.store.createRecord('esnode', {nodeUrl: ''});
+      // }
+      return this.store.createRecord('esnode', {nodeUrl: "http://192.168.1.13:9200"});
       //return {};
   },
   actions:{
         connect: function(){
-            var esNode = this.currentModel;
-            jQuery.getJSON(this.currentModel.nodeUrl, function(json) {
-              esNode.save();
+          // check the node
+          var node = this.currentModel;
+            jQuery.getJSON(node.get('nodeUrl'), function(json) {
+              if(json.status == 200){
+                node.getIndices();
+              }
             });
         }   
     }
@@ -24,6 +27,10 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.IndicesRoute = Ember.Route.extend({
   model: function(params) {
-    return ;
+    return this.store.find('indices', {name: params.index_name});
+  },
+  serialize: function(model) {
+    // this will make the URL `/posts/foo-post`
+    return { index_name: model.get('name') };
   }
 });
