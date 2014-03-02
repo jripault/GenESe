@@ -16,6 +16,7 @@ App.ApplicationRoute = Ember.Route.extend({
         connect: function(){
           // check the node
           var node = this.currentModel;
+          node.get('indices').clear();
             jQuery.getJSON(node.get('nodeUrl'), function(json) {
               if(json.status == 200){
                 node.getIndices();
@@ -27,6 +28,7 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.IndicesRoute = Ember.Route.extend({
   model: function(params) {
+    // TODO check if indices are fetched
     return this.store.find('indices', {name: params.index_name});
   },
   serialize: function(model) {

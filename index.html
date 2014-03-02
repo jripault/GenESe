@@ -8,42 +8,6 @@
     <link rel="stylesheet" href="css/genese.css">
 </head>
 <body>
-<script type="text/x-handlebars">
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-            </button>
-            <a class="navbar-brand" href="#">GenESe</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right ">
-                {{input type="text" class="form-control" size="50" id="connect" value=nodeUrl placeholder="url"}}
-                <button {{action "connect"}} class="btn btn-success">Connect</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                {{#each index in indices}}
-                <li>{{#link-to 'indices' index}}{{index.name}}{{/link-to}}</li>
-                {{/each}}
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
-
-
-            <h2 class="sub-header">Section title</h2>
-        </div>
-    </div>
-</div>
-</script>
 
 <script src="js/libs/jquery-1.10.2.js"></script>
 <script src="js/libs/bootstrap.min.js"></script>
@@ -56,5 +20,6 @@
 <script src="js/models/index.js"></script>
 <script src="js/models/esnode.js"></script>
 <script src="js/router.js"></script>
+<script src="build/templates.js"></script>
 </body>
 </html>
