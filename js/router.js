@@ -34,5 +34,8 @@ App.IndicesRoute = Ember.Route.extend({
   serialize: function(model) {
     // this will make the URL `/posts/foo-post`
     return { index_name: model.get('name') };
+  },
+  setupController: function(controller, index){
+    controller.set('model', index);
   }
 });

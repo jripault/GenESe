@@ -1,1 +1,42 @@
-{{name}}
+<h2 class="page-header">Generators for index {{model.name}} </h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <form class="form-inline">
+            <span class="help-block">Add field</span>
+            {{input type="text" id="new-field" placeholder="Field name" value=newFieldName}}
+            {{view Ember.Select viewName="select" class="form-control"
+            contentBinding="generators"
+            optionLabelPath="generator.name"
+            optionValuePath="generator.id"
+            prompt="Pick a generator:"
+            selectionBinding="selectedGenerator"}}
+            <button {{action "createField"}} class="btn btn-primary">Add</button>
+          </form>
+        </div>
+        <div class="row-fluid">
+          {{#each field in model.fields}}
+          <div class="panel panel-default">
+            <div class="panel-heading">Field: {{field.name}}</div>
+            <div class="panel-body">
+              Generator: {{field.generator.name}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        <div class="row-fluid">
+          <form class="form-inline">
+            {{input type="text" id="number-records" placeholder="Number of records" value=numberRecords}}
+            <button {{action "generateData"}} class="btn btn-success">Generate</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h3>Sample</h3>
+      JSON generated
+    </div>
+  </div>
+</div>
