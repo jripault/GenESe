@@ -1,0 +1,5 @@
+dans Generator: {{field.generator.name}}
+mettre un {{render 'template basic generator' field.generator}}
+le template est géré par un controller particulier GeneratorController
+	il se charge, suivant le type de generator d'inserer la vue correspondante (NumberGeneratorView, etc ...)
+le render doit être refait à chaque fois que le type de générateur change (via la combobox) 

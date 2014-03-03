@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Field: {{model.name}}</div>
+  <div class="panel-body">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        Generator:
+        {{view Ember.Select viewName="select" class="form-control"
+        contentBinding="controller.generators"
+        optionLabelPath="content.name"
+        optionValuePath="content.name"
+        prompt="Pick a generator"
+        selectionBinding="selectedGenerator"}}
+      </div>
+      <div class="row">
+        <div class="view-container"></div>
+      </div>
+    </div>
+  </div>
