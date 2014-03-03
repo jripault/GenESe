@@ -7,23 +7,12 @@
           <form class="form-inline">
             <span class="help-block">Add field</span>
             {{input type="text" id="new-field" placeholder="Field name" value=newFieldName}}
-            {{view Ember.Select viewName="select" class="form-control"
-            contentBinding="generators"
-            optionLabelPath="generator.name"
-            optionValuePath="generator.id"
-            prompt="Pick a generator:"
-            selectionBinding="selectedGenerator"}}
             <button {{action "createField"}} class="btn btn-primary">Add</button>
           </form>
         </div>
         <div class="row-fluid">
           {{#each field in model.fields}}
-          <div class="panel panel-default">
-            <div class="panel-heading">Field: {{field.name}}</div>
-            <div class="panel-body">
-              Generator: {{field.generator.name}}
-            </div>
-          </div>
+          	{{render "field" field}}
           {{/each}}
         </div>
         <div class="row-fluid">

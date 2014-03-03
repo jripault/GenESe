@@ -29,7 +29,8 @@ App.ApplicationRoute = Ember.Route.extend({
 App.IndicesRoute = Ember.Route.extend({
   model: function(params) {
     // TODO check if indices are fetched
-    return this.store.find('indices', {name: params.index_name});
+    var index = this.store.find('indices', {name: params.index_name})
+    return index;
   },
   serialize: function(model) {
     // this will make the URL `/posts/foo-post`
