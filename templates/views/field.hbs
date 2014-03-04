@@ -5,14 +5,15 @@
       <div class="row-fluid">
         Generator:
         {{view Ember.Select viewName="select" class="form-control"
-        contentBinding="controller.generators"
+        contentBinding="generators"
         optionLabelPath="content.name"
         optionValuePath="content.name"
         prompt="Pick a generator"
         selectionBinding="selectedGenerator"}}
+
       </div>
       <div class="row">
-        <div class="view-container"></div>
+        {{view Ember.ContainerView viewName="generatorView"}}
       </div>
     </div>
   </div>
