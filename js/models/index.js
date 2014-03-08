@@ -1,4 +1,4 @@
-App.Index = DS.Model.extend({
+App.Models.Index = DS.Model.extend({
   name: DS.attr('string'),
-  fields: DS.hasMany('field')
+  fields: DS.hasMany(App.Models.Field)
 });

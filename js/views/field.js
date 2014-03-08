@@ -6,8 +6,9 @@ App.FieldView = Ember.View.extend({
             this.generatorView.popObject();
             var generator = this.get('controller.selectedGenerator');
             if (generator) {
-                this.generatorView.pushObject(App.Views.NumberGenerator.create({
-                    name: generator.get('name')
+                this.generatorView.pushObject(Ember.View.create({
+                    name: generator.get('name'),
+                    templateName: 'views/' + generator.get('name') +'Generator'
                 }))
             }
         }

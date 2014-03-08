@@ -1,4 +1,5 @@
-App.Field = DS.Model.extend({
+App.Models.Field = DS.Model.extend({
 	name: DS.attr('string'),
-	generator: DS.belongsTo('generator')
+	generator: DS.belongsTo(App.Models.Generator),
+	generatorOptions: DS.attr()
 });

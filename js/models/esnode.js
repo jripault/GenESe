@@ -1,6 +1,6 @@
-App.Esnode = DS.Model.extend({
+App.Models.Esnode = DS.Model.extend({
   nodeUrl: DS.attr('string'),
-  indices: DS.hasMany('index'),
+  indices: DS.hasMany(App.Models.Index),
 
   getIndices: function(){
   	var node = this;
@@ -9,7 +9,7 @@ App.Esnode = DS.Model.extend({
   		var indices = result.metadata.indices;
   		for (var key in indices){
   			var indexJSON = indices[key];
-  			var index = store.createRecord('index', indexJSON);
+  			var index = store.createRecord(App.Models.Index, indexJSON);
   			index.set('name', key);
   			node.get('indices').pushObject(index);
   		};

@@ -15,7 +15,7 @@ Need npm and Grunt to compile Handlebars templates
 
 Install dependencies through npm
 ```
-npm install grunt grunt-cli grunt-ember-templates grunt-contrib-watch --save
+npm install grunt grunt-cli grunt-ember-templates grunt-contrib-watch grunt-contrib-concat --save
 ```
 
 Run Grunt with task watch: 
