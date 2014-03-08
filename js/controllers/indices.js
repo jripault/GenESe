@@ -16,17 +16,28 @@ App.IndicesController = Ember.Controller.extend({
             this.get('model').get('fields').pushObject(field);
         },
         generateData: function() {
-        	console.log('generate data to send to ES');
+            console.log('generate data to send to ES');
             var fields = this.get('model').get('fields');
             var count = this.get('numberRecords') || 1;
-            for (var i = 0; i < count; i++) {    
+            for (var i = 0; i < count; i++) {
                 var result = {}
-                fields.forEach(function(field){
+                fields.forEach(function(field) {
                     result[field.get('name')] = field.get('generator').generate(field.get('generatorOptions'));
                 })
                 console.log("generated result: ", result);
-
+                this.indexData(result);
             };
         }
+    },
+    indexData: function(data) {
+        $.ajax({
+            url: this.get('model.indexUrl') + '/mytype',
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            success: function(data) {
+                console.log("Indexing done");
+            }
+        });
     }
 });

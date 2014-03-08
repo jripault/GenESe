@@ -11,6 +11,7 @@ App.Models.Esnode = DS.Model.extend({
   			var indexJSON = indices[key];
   			var index = store.createRecord(App.Models.Index, indexJSON);
   			index.set('name', key);
+        index.set('indexUrl', node.get('nodeUrl')+'/'+key);
   			node.get('indices').pushObject(index);
   		};
   	});
