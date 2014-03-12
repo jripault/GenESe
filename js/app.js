@@ -15,12 +15,23 @@ Ember.Application.initializer({
         });
         store.createRecord(App.Models.Generator, {
             name: "string",
+            charset: "abcdefghijklmnopqrstuvwxyz",
+            charsetLength: 26,
             generate: function(options) {
                 var text = " ";
-                var charset = "abcdefghijklmnopqrstuvwxyz";
                 var len = options.max || 5;
-                for (var i = 0; i < len; i++) text += charset.charAt(Math.floor(Math.random() * charset.length));
+                for (var i = 0; i < len; i++) text += this.charset.charAt(Math.floor(Math.random() * this.charsetLength));
                 return text;
+            }
+        });
+        store.createRecord(App.Models.Generator, {
+            name: "id",
+            idSequence: 0,
+            init: function(){
+            	this.idSequence = 0;
+            },
+            generate: function(options) {
+                return this.idSequence++;
             }
         });
     }

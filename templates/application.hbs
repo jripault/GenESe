@@ -11,6 +11,7 @@
                 {{input type="text" class="form-control" size="50" id="connect" value=nodeUrl placeholder="url"}}
                 <button {{action "connect"}} class="btn btn-success">Connect</button>
             </form>
+            <div class="status"></div>
         </div>
     </div>
 </div>
@@ -20,7 +21,7 @@
             <h3>Indices</h3>
             <ul class="nav nav-sidebar">
                 {{#each index in indices}}
-                <li>{{#link-to 'indices' index}}{{index.name}}{{/link-to}}</li>
+                    {{#link-to 'indices' index tagName="li" href=false}}<a {{bindAttr href="view.href"}}>{{index.name}}</a>{{/link-to}}
                 {{/each}}
             </ul>
         </div>

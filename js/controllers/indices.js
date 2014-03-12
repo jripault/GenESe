@@ -1,4 +1,8 @@
 App.IndicesController = Ember.Controller.extend({
+    init: function() {
+        this.set('generators', this.store.find(App.Models.Generator));
+    },
+
     actions: {
         createField: function() {
             var name = this.get('newFieldName');
@@ -17,6 +21,7 @@ App.IndicesController = Ember.Controller.extend({
         },
         generateData: function() {
             console.log('generate data to send to ES');
+            this.initGenerator();
             var fields = this.get('model').get('fields');
             var count = this.get('numberRecords') || 1;
             for (var i = 0; i < count; i++) {
@@ -28,6 +33,9 @@ App.IndicesController = Ember.Controller.extend({
                 this.indexData(result);
             };
         }
+    },
+    initGenerator: function(){
+        this.get('generators').forEach(function(generator){ generator.prepare()})
     },
     indexData: function(data) {
         $.ajax({

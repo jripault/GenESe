@@ -1,6 +1,11 @@
 App.Models.Esnode = DS.Model.extend({
   nodeUrl: DS.attr('string'),
+  nodeState: DS.attr('string'),
   indices: DS.hasMany(App.Models.Index),
+
+  init: function(){
+    //this.set('status', 'disconnected');
+  },
 
   getIndices: function(){
   	var node = this;
