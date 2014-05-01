@@ -102,12 +102,12 @@ body {
 /*
  * Status indicator
  */
-.status {
+.disconnected {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
   content: " ";
-  display: inline-block;
+  display: inline-flex;
   width: 1em;
   height: 1em;
   margin: 1em;
@@ -120,12 +120,12 @@ body {
   box-shadow: #bfbfbf 0 0 0.5em 0.25em inset, rgba(255, 255, 255, 0.5) 0 0.125em 0, rgba(77, 77, 77, 0.1) 0 0.09375em 0;
 }
 
-.status-error {
+.error {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
   content: " ";
-  display: inline-block;
+  display: inline-flex;
   width: 1em;
   height: 1em;
   margin: 1em;
@@ -138,12 +138,12 @@ body {
   box-shadow: #b14543 0 0 0.5em 0.25em inset, rgba(224, 174, 173, 0.5) 0 0.125em 0, rgba(11, 4, 4, 0.1) 0 0.09375em 0;
 }
 
-.status-success {
+.connected {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
   content: " ";
-  display: inline-block;
+  display: inline-flex;
   width: 1em;
   height: 1em;
   margin: 1em;

@@ -8,10 +8,10 @@
         </div>
         <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right ">
+                <div {{bind-attr class="status"}}></div>
                 {{input type="text" class="form-control" size="50" id="connect" value=nodeUrl placeholder="url"}}
                 <button {{action "connect"}} class="btn btn-success">Connect</button>
             </form>
-            <div class="status"></div>
         </div>
     </div>
 </div>

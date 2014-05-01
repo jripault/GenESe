@@ -24,6 +24,7 @@ Ember.Application.initializer({
                 return text;
             }
         });
+        
         store.createRecord(App.Models.Generator, {
             name: "id",
             idSequence: 0,
