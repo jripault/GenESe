@@ -1,4 +1,4 @@
-App.Models.Generator = DS.Model.extend({
+App.Generator = DS.Model.extend({
   name: DS.attr('string'),
 
   prepare: function(){

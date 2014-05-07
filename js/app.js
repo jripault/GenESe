@@ -5,7 +5,9 @@ Ember.Application.initializer({
     name: "generatorsInit",
     initialize: function(container, application) {
         var store = container.lookup('store:main');
-        store.createRecord(App.Models.Generator, {
+
+        // create generators
+        store.createRecord(App.Generator, {
             name: "number",
             generate: function(options) {
                 var min = (options && options.min) || 0;
@@ -13,7 +15,7 @@ Ember.Application.initializer({
                 return Math.floor(Math.random() * (max - min + 1) + min);
             }
         });
-        store.createRecord(App.Models.Generator, {
+        store.createRecord(App.Generator, {
             name: "string",
             charset: "abcdefghijklmnopqrstuvwxyz",
             charsetLength: 26,
@@ -24,8 +26,7 @@ Ember.Application.initializer({
                 return text;
             }
         });
-        
-        store.createRecord(App.Models.Generator, {
+        store.createRecord(App.Generator, {
             name: "id",
             idSequence: 0,
             init: function(){
@@ -33,6 +34,14 @@ Ember.Application.initializer({
             },
             generate: function(options) {
                 return this.idSequence++;
+            }
+        });
+        store.createRecord(App.Generator, {
+            name: "values",
+            generate: function(options) {
+                var values = options.values.split(",");
+                var index = Math.floor(Math.random() * (values.length));
+                return values[index];
             }
         });
     }

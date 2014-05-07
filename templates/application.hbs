@@ -9,6 +9,7 @@
         <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right ">
                 <div {{bind-attr class="status"}}></div>
+
                 {{input type="text" class="form-control" size="50" id="connect" value=nodeUrl placeholder="url"}}
                 <button {{action "connect"}} class="btn btn-success">Connect</button>
             </form>
@@ -21,7 +22,7 @@
             <h3>Indices</h3>
             <ul class="nav nav-sidebar">
                 {{#each index in indices}}
-                    {{#link-to 'indices' index tagName="li" href=false}}<a {{bindAttr href="view.href"}}>{{index.name}}</a>{{/link-to}}
+                    {{#link-to 'indices' index tagName="li" href=false}}<a {{bind-attr href="view.href"}}>{{index.name}}</a>{{/link-to}}
                 {{/each}}
             </ul>
         </div>

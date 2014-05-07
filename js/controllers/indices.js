@@ -1,6 +1,6 @@
 App.IndicesController = Ember.Controller.extend({
     init: function() {
-        this.set('generators', this.store.find(App.Models.Generator));
+        this.set('generators', this.store.find(App.Generator));
     },
 
     actions: {
@@ -10,9 +10,8 @@ App.IndicesController = Ember.Controller.extend({
                 return;
             }
             // Create the new Field model
-            var field = this.store.createRecord(App.Models.Field, {
-                name: name,
-                generatorOptions: {}
+            var field = this.store.createRecord(App.Field, {
+                name: name
             });
             // Clear the "New Field" text field
             this.set('newFieldName', '');

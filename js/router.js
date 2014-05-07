@@ -9,7 +9,7 @@ App.ApplicationRoute = Ember.Route.extend({
       // {
       //     return this.store.createRecord('esnode', {nodeUrl: ''});
       // }
-      return this.store.createRecord(App.Models.Esnode, {nodeUrl: "http://192.168.1.13:9200"});
+      return this.store.createRecord(App.Esnode, {nodeUrl: "http://localhost:9200"});
       //return {};
   },
   actions:{
@@ -29,7 +29,7 @@ App.ApplicationRoute = Ember.Route.extend({
 App.IndicesRoute = Ember.Route.extend({
   model: function(params) {
     // TODO check if indices are fetched
-    var index = this.store.find(App.Models.Index, {name: params.index_name})
+    var index = this.store.find(App.Index, {name: params.index_name})
     return index;
   },
   serialize: function(model) {
