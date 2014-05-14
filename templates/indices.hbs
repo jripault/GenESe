@@ -1,32 +1,41 @@
 <h2 class="page-header">Generators for index {{model.name}} </h2>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-9">
-      <div class="container-fluid">
-        <div class="row-fluid">
-          <form class="form-inline">
-            <span class="help-block">Add field</span>
-            {{input type="text" id="new-field" placeholder="Field name" value=newFieldName}}
-            <button {{action "createField"}} class="btn btn-primary">Add</button>
-          </form>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <form class="form-inline">
+                        <span class="help-block">Add field</span>
+                      {{input type="text" id="new-field" placeholder="Field name" value=newFieldName}}
+                        <button {{action "createField"}} class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="field-name-col">Field</th>
+                        <th class="generator-cb-col">Generator</th>
+                        <th>Options</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each field in model.fields}}
+                      {{render "field" field}}
+                    {{/each}}
+                    </tbody>
+                </table>
+                <hr>
+                <div class="row-fluid">
+                    <form class="form-inline">
+                      {{input type="text" id="number-records" placeholder="Number of records" value=numberRecords}}
+                        <button {{action "generateData"}} class="btn btn-success">Generate</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="row-fluid">
-          {{#each field in model.fields}}
-          	{{render "field" field}}
-          {{/each}}
+        <div class="col-md-3">
+            <h3>Sample</h3>
+            JSON generated
         </div>
-        <hr>
-        <div class="row-fluid">
-          <form class="form-inline">
-            {{input type="text" id="number-records" placeholder="Number of records" value=numberRecords}}
-            <button {{action "generateData"}} class="btn btn-success">Generate</button>
-          </form>
-        </div>
-      </div>
     </div>
-    <div class="col-md-3">
-      <h3>Sample</h3>
-      JSON generated
-    </div>
-  </div>
 </div>

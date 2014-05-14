@@ -1,5 +1,6 @@
 App.FieldView = Ember.View.extend({
     templateName: 'views/field',
+    tagName: 'tr',
     generatorView: null,
     generatorChange: function() {
         if (this.generatorView) {
