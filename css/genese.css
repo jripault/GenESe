@@ -156,9 +156,16 @@ body {
   box-shadow: #4e974f 0 0 0.5em 0.25em inset, rgba(171, 211, 172, 0.5) 0 0.125em 0, rgba(0, 0, 0, 0.1) 0 0.09375em 0;
 }
 
+.checkbox-col{
+    width:50px;
+}
 .field-name-col{
     width:100px;
 }
 .generator-cb-col{
     width:200px;
+}
+
+.datepicker{
+    width:100px;
 }

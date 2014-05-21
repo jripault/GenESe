@@ -29,7 +29,7 @@ App.IndicesController = Ember.Controller.extend({
                     result[field.get('name')] = field.get('generator').generate(field.get('generatorOptions'));
                 })
                 console.log("generated result: ", result);
-                this.indexData(result);
+                //this.indexData(result);
             };
         }
     },

@@ -44,6 +44,14 @@ Ember.Application.initializer({
                 return values[index];
             }
         });
+        store.createRecord(App.Generator, {
+            name: "date",
+            generate: function(options) {
+                var from = options.startDate ? new Date(options.startDate) : new Date();
+                var to = options.endDate ? new Date(options.endDate) : new Date();
+                return new Date(from.getTime() + Math.random() * (to.getTime() - from.getTime()));
+            }
+        });
     }
 })
 App.ApplicationAdapter = DS.LSAdapter.extend({
